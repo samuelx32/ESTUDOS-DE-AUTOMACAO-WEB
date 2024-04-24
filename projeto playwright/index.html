@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #login {
+            width:50%;
+            border:1px solid black;
+            margin-left:20%;
+            padding-top:5%;
+            padding-bottom:5%;
+            padding-right: 5%;
+            padding-left: 1%;
+            background-color:aquamarine;
+        }
+        
+        #login .campo{
+            width:70%;
+            height:1.5vw;
+            margin-bottom: 1%;
+        }
+
+        #login .botao{
+            width:30%;
+            height:1.5vw;
+            background-color: gainsboro;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="login">
+        <h1>LOGIN</h1>
+        <form method="post" action="menu.html">
+            <input id="usuario" class="campo" type="text" placeholder="Usuário" name="usuario" required>
+            <input id="senha" class="campo" type="password" placeholder="Senha" name="senha" required>
+            <input type="submit" class="botao" value="Entrar">
+        </form>    
+    </section>
+</body>
+</html>

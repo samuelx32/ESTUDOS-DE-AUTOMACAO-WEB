@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinar</title>
+    <style>
+        #menu {
+            width:50%;
+            border:1px solid black;
+            margin-left:20%;
+            padding-top:5%;
+            padding-bottom:5%;
+            padding-right: 5%;
+            padding-left: 1%;
+            background-color:white;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <section id="menu">
+        <h1>Documento</h1>
+        <button onclick="clicar()" id="assinar">Assinar</button>
+        <button id="voltar"><a href="menu.html">Voltar</a></button>
+        </p>
+        <iframe src="doc_teste.pdf" width="600" height="780" style="border: none;"></iframe>
+        
+    </section>
+</body>
+</html>
+
+<script>
+    function clicar(){
+        alert("Assinado")
+    }
+</script>
