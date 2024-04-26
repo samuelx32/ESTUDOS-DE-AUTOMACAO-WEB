@@ -33,10 +33,12 @@ def extrair_cavalo(string):
 dir = os.path.dirname(__file__)
 root = ET.parse(f'{dir}\\arqxml.xml').getroot()
 nsNFE = {'ns': 'http://www.portalfiscal.inf.br/nfe'}
+
+chave = root.find('ns:NFe/ns:infNFe',nsNFE).attrib['Id'][3:]
 dados = root.find('ns:NFe/ns:infNFe/ns:infAdic/ns:infCpl',nsNFE).text
 
 nome = extrair_nome(dados)
 carreta = extrair_carreta(dados)
 cavalo = extrair_cavalo(dados)
 
-print("\nNome: ",nome,"\nCarreta: ",carreta,"\nCavalo: ",cavalo)
+print("\n\nNome: ",nome,"\nCarreta: ",carreta,"\nCavalo: ",cavalo,"\nChave: ", chave)
