@@ -43,7 +43,9 @@ with sync_playwright() as p:
 
     page.locator("span[data-icon='plus'] > svg").click()
 
-    page.locator("'Fotos e vídeos'").click()
+    #page.locator("'Fotos e vídeos'").click()
+    page.set_input_files("div:below(:text-is('Documento')) > input >> nth = 0",f"{diretorio}//ferr.png")
+    page.wait_for_timeout(2000)
     expect(page.locator("div[aria-label='Enviar']")).to_be_visible(timeout=240000)
     page.locator("div[aria-label='Enviar']").click()
     auto.alert("pause")
