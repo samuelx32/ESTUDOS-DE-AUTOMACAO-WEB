@@ -28,7 +28,7 @@ with sync_playwright() as p:
     expect(page.locator(".landing-title >> nth = 0")).to_be_visible(timeout=120000)
     expect(page.locator(".landing-title >> nth = 0")).not_to_be_visible(timeout=120000)
 
-    telefone = '984696057'
+    telefone = ''
 
     try:
         expect(page.locator("div[title='Nova conversa']")).to_be_visible(timeout=240000)
