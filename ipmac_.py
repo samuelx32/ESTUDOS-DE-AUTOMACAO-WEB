@@ -7,7 +7,7 @@ def get_mac_address():
 
 
 
-meu_mac = "A8-A1-59-05-C0-64"
+meu_mac = ""
 
 if meu_mac == str(get_mac_address()):
     print("Liberado")
