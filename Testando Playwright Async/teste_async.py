@@ -54,29 +54,7 @@ async def auto2 (wb):
             noticia = await page.locator(f".resultados > li >> nth = {i} ").inner_text()
             planilha['camara'][i+1].value = noticia
             
-            
-async def auto3 (wb):
-    Diretorio = os.path.dirname(__file__)
-    arquivo=os.path.basename(__file__)[:-3]
-
-    from playwright.async_api import async_playwright, expect
-    async with async_playwright() as p:        
-        browser = await p.chromium.launch(args=["--window-position=1000,600"],channel="chrome", headless=False, downloads_path=Diretorio)    
-        
-        #time.sleep(4)
-        page = await browser.new_page()
-        page.set_default_timeout(10000)
-
-        width = await page.evaluate("window.screen.width")
-        height = await page.evaluate("window.screen.height")
-        await page.set_viewport_size({'width': (width/2)+350, 'height': (height/2)+200})
-        await page.goto("https://camaranet.camara.leg.br/web/noticias-da-casa/noticias/-/resultados/avisos/10131/384295")  
-        
-        qtn = await page.locator(".resultados > li").count()
-        planilha = wb.sheets['Resultados']
-        for i in range(0,qtn):
-            noticia = await page.locator(f".resultados > li >> nth = {i} ").inner_text()
-            planilha['camara'][i+1].value = noticia           
+                  
 
 
 async def rodar():    
@@ -88,8 +66,7 @@ async def rodar():
 
     await asyncio.gather(
         auto1(wb),
-        auto2(wb),
-        auto3(wb)
+        auto2(wb)
     )
     
     
