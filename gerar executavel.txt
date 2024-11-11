@@ -1,0 +1,3 @@
+$env:PLAYWRIGHT_BROWSERS_PATH="0"
+playwright install (chromium/firefox)
+pyinstaller -F nome_arquivo.py
