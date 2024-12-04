@@ -5,13 +5,13 @@ import os
 import asyncio
 import threading
 import time
+from playwright.async_api import async_playwright, expect
 
 
 async def auto1 (wb):
     Diretorio = os.path.dirname(__file__)
     arquivo=os.path.basename(__file__)[:-3]
 
-    from playwright.async_api import async_playwright, expect
     async with async_playwright() as p:        
         browser = await p.chromium.launch(args=["--window-position=0,0"],channel="chrome", headless=False, downloads_path=Diretorio)    
     
