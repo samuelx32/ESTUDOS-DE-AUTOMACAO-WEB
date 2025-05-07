@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="calendar"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true, // permite selecionar datas
+        events:[],
+        dateClick: function(info) {
+            const titulo = prompt("Título do evento:");
+            if (titulo) {
+            calendar.addEvent({
+                title: titulo,
+                start: info.dateStr,
+                allDay: true,
+                categoria: 'Bh',
+                situacao: 'Em análise'
+            });
+            }
+        },
+        eventDidMount: function(info) {
+            const situacao = info.event.extendedProps.situacao;
+
+            let cor = '';
+            switch (situacao) {
+                case 'aprovado':
+                cor = '#4CAF50'; // verde
+                break;
+                case 'recusado':
+                cor = '#2196F3'; // azul
+                break;
+                case 'Em análise':
+                cor = '#FFC107'; // amarelo
+                break;
+                default:
+                cor = '#9E9E9E'; // cinza para desconhecidos
+            }
+
+            // Aplica a cor de fundo
+            info.el.style.backgroundColor = cor;
+
+            // Se quiser, pode também alterar o texto
+            info.el.title = situacao;
+        }
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+</html>
